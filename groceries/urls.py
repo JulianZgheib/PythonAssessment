@@ -10,7 +10,9 @@ urlpatterns = [
     path('AddProductFrozen/',views.add_product_Frozen,name='AddNewProduct1'),
     path('AddProductFresh/',views.add_product_Fresh,name='AddNewProduct2'),
     path('FreshProductDetails/<int:id>',views.fresh_product_details,name='DetailsFresh'),
-    path('FrozenProductDetails/<int:id>',views.frozen_product_details,name='DetailsFrozen')
+    path('FrozenProductDetails/<int:id>',views.frozen_product_details,name='DetailsFrozen'),
+    path('RegisterCustomer/',views.register_customer,name='Register')
+    
     
 ]
 

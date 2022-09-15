@@ -35,3 +35,7 @@ class Products(models.Model): #('type','name','price')
     
     def __str__(self):
         return self.name+" "+self.type
+    
+########################################
+
+    

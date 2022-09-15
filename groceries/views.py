@@ -14,7 +14,8 @@ def list_staff(request,format=None):
         staff = Staff.objects.all()
         serializer = StaffSerializer(staff,many=True)
         return JsonResponse({'List Of Staff':serializer.data})
-    
+
+### for Internal Staff    Add new one, Edit something in user, delete user
 @api_view(['POST'])
 def add_staff(request,format=None):       
     if request.method =='POST':
@@ -47,15 +48,6 @@ def edit_staff(request,id):
         print("Deleted")
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-# Customer Registration
-@api_view(['POST'])
-def new_customer(request,format=None):
-    if request.method =='POST':
-         serializer= CustomerSerializer(data = request.data)
-         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data,status=status.HTTP_201_CREATED)
-    return Response(status=status)
 
 ############### ALL Product ##############
 @api_view(['GET'])
@@ -132,7 +124,19 @@ def frozen_product_details(request,id):
         product.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 #########################################################
-##### Customer Sign in #########
+
+# Customer Registration
 @api_view(['POST'])
 def register_customer(request):
+    serializer= CustomerSerializer(data = request.data)
+    if serializer.is_valid():
+        # Here we can ADD code to check if the user exsit by email "Call a function Created to check" 
+        # email = serializer.validated_data.get('email')       
+       serializer.save()
+       return Response(serializer.data,status=status.HTTP_201_CREATED) 
+    return Response(status=status)
+################
+###### add to Cart API #########
+@api_view(['POST'])
+def add_product_to_cart(request):
     pass

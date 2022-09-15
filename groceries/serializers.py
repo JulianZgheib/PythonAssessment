@@ -1,5 +1,3 @@
-from dataclasses import field
-from wsgiref.validate import validator
 from rest_framework import serializers
 from groceries.models import Staff,Customers,Products
 
@@ -17,3 +15,4 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Products
         fields = ('id','type','name','price')
+
