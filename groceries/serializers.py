@@ -11,7 +11,7 @@ class StaffSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customers
-        fields = ('id','fname','lname','email','categories')
+        fields = ('id','fname','lname','email','password','categories')
          
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:

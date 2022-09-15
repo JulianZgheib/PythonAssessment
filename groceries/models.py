@@ -18,6 +18,7 @@ class Customers(models.Model): #('fname','lname','email','categories')
     fname = models.CharField(max_length=50,null=False,verbose_name='First Name')
     lname = models.CharField(max_length=50,null=False,verbose_name='Last Name')
     email = models.EmailField(max_length=50,null=False,verbose_name="Email")
+    password = models.CharField(max_length=50,null=False,verbose_name='Password')
     categories = models.IntegerField(null=True,default=0)
     
     def __str__(self):
