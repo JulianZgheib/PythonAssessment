@@ -1,0 +1,15 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    image: app:app
+    container_name: django-container
+    command: python manage.py runserver 0.0.0.0:8000
+  db:
+    image: nouchka/sqlite3:latest
+    volumes:
+      - .db_data/db.sqlite3:/db.sqlite3
